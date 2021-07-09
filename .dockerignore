@@ -1,0 +1,44 @@
+# IntelliJ project files
+.idea
+
+# VS code
+.vscode
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Node libraries
+node_modules
+
+# Docker files
+.dockerignore
+Dockerfile
+docker-compose*.yml
+
+# Docker data
+.docker/*
+
+# Composer libraries
+vendor
+
+# Application cache & logs
+bootstrap/cache/*
+storage/app/*
+storage/framework/cache/*
+storage/framework/sessions/*
+storage/framework/views/*
+storage/logs/*
+
+# Env files
+*.env*
+
+# Docs
+README.md
+
+# Others
+.editorconfig
+.commitlintrc.json
+.styleci.yml
+.husky
