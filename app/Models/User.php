@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -20,6 +19,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'birthday',
+        'role',
     ];
 
     /**
@@ -29,15 +30,17 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
-        'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    public function grades(){
+        return $this->belongsToMany(Grade::class)->withTimestamps();
+    }
+
+    public function exams(){
+        return $this->hasMany(UserExam::class);
+    }
+
+    public function subjects(){
+        return $this->belongsToMany(Subject::class, "user_subjects")->withTimestamps();
+    }
 }
