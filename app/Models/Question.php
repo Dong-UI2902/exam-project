@@ -16,8 +16,11 @@ class Question extends Model
         return $this->hasMany(QuestionAnswer::class);
     }
 
-    public function exams(){
-        return $this->belongsToMany(Exam::class)->withTimestamps();
+    public function exam(){
+        return $this->belongsTo(Exam::class);
     }
 
+    public function userAnswer(){
+        return $this->hasMany(UserExamAnswer::class);
+    }
 }

@@ -17,7 +17,11 @@ class Exam extends Model
     }
 
     public function questions(){
-        return $this->belongsToMany(Question::class)->withTimestamps();
+        return $this->hasManyThrough(Question::class);
+    }
+
+    public function subject(){
+        return $this->belongsTo(Subject::class);
     }
 
 }

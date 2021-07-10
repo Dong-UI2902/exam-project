@@ -37,10 +37,10 @@ class User extends Authenticatable
     }
 
     public function exams(){
-        return $this->hasMany(UserExam::class);
+        return $this->belongsToMany(Exam::class)->withTimestamps();
     }
 
-    public function subjects(){
-        return $this->belongsToMany(Subject::class, "user_subjects")->withTimestamps();
+    public function answers(){
+        return $this->hasManyThrough(UserExamAnswer::class);
     }
 }

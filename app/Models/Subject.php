@@ -12,12 +12,12 @@ class Subject extends Model
     protected $table = 'subjects';
     protected $guarded = ['id'];
 
-    public function users(){
-        return $this->belongsToMany(User::class)->withTimestamps();
-    }
-
     public function exams(){
         return $this->hasMany(Exam::class);
+    }
+
+    public function grade(){
+        return $this->belongsTo(Grade::class);
     }
 
 }

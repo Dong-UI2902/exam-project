@@ -23,4 +23,8 @@ class Grade extends Model
     public function subjects(){
         return $this->hasMany(Subject::class);
     }
+
+    public function exams(){
+        return $this->hasManyThrough(Exam::class);
+    }
 }
